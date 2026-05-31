@@ -1,20 +1,10 @@
 @import "tailwindcss";
 
-/* Self-hosted fonts — no external requests */
-@import "@fontsource/cormorant-garamond/300.css";
-@import "@fontsource/cormorant-garamond/400.css";
-@import "@fontsource/cormorant-garamond/500.css";
-@import "@fontsource/cormorant-garamond/300-italic.css";
-@import "@fontsource/cormorant-garamond/400-italic.css";
-@import "@fontsource/inter/300.css";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
-@import "@fontsource/manrope/300.css";
-@import "@fontsource/manrope/400.css";
-@import "@fontsource/manrope/500.css";
-@import "@fontsource/manrope/600.css";
-@import "@fontsource/manrope/700.css";
+/* Self-hosted variable fonts — 3 imports instead of 14, covers all weights */
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource-variable/cormorant-garamond/wght-italic.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/manrope";
 
 @layer base {
   html { scroll-behavior: smooth; }
