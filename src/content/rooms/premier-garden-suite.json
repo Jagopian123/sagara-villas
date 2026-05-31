@@ -1,0 +1,12 @@
+{
+  "name": "Premier Garden Suite",
+  "price": 240,
+  "size": "55",
+  "bed": "King Bed",
+  "guests": "2",
+  "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=85",
+  "description": "Nestled within our tropical gardens, this spacious suite features a separate living area, outdoor soaking tub, and direct garden access where you can hear the ocean from every corner.",
+  "features": ["Garden Access", "Outdoor Bathtub", "Separate Living Room", "King Bed", "Espresso Machine", "Butler Service", "Yoga Mat & Guide", "Premium Minibar"],
+  "includes": ["Daily breakfast for two", "Afternoon tea service", "One Segara Spa treatment (60 min)", "Airport transfer (two-way)"],
+  "order": 2
+}

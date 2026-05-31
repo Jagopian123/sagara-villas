@@ -1,0 +1,12 @@
+{
+  "name": "Family Garden Suite",
+  "price": 320,
+  "size": "95",
+  "bed": "2 Bedrooms",
+  "guests": "4",
+  "image": "https://images.unsplash.com/photo-1596436889106-be35e843f974?w=1200&q=85",
+  "description": "A spacious two-bedroom sanctuary designed for families who want to experience Bali together. A children's play area, outdoor dining garden, and connecting rooms ensure everyone has space to relax.",
+  "features": ["2 Bedrooms", "Kids Play Area", "Private Garden", "Outdoor Dining", "Baby Crib Available", "Family Amenities", "Connecting Rooms", "Children's Pool Access"],
+  "includes": ["Daily breakfast for four", "Kids welcome gift", "One family cooking class", "Babysitting service (4 hrs)", "Airport transfer for four"],
+  "order": 5
+}

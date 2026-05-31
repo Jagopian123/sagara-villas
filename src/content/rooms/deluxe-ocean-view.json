@@ -1,0 +1,26 @@
+{
+  "name": "Deluxe Ocean Viewwww",
+  "price": 180,
+  "size": "35",
+  "bed": "King Bed",
+  "guests": "2",
+  "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85",
+  "description": "Wake up to panoramic ocean views from your private balcony. Our Deluxe rooms feature a luxurious king bed, marble bathroom, and carefully curated Balinese décor that tells a story in every detail.",
+  "features": [
+    "Private Balcony",
+    "Ocean View",
+    "King Bed",
+    "Marble Bathroom",
+    "Free WiFi",
+    "Mini Bar",
+    "Rain Shower",
+    "Air Conditioning"
+  ],
+  "includes": [
+    "Daily breakfast for two",
+    "Welcome drink & cold towel",
+    "Evening turn-down service",
+    "Airport transfer (one-way)"
+  ],
+  "order": 1
+}

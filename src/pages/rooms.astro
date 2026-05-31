@@ -1,68 +1,14 @@
 ---
+export const prerender = true
 import MainLayout from '../layouts/MainLayout.astro'
 
-const rooms = [
-  {
-    slug: 'deluxe-ocean-view',
-    name: 'Deluxe Ocean View',
-    price: 180,
-    size: '35',
-    bed: 'King Bed',
-    guests: '2',
-    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85',
-    description: 'Wake up to panoramic ocean views from your private balcony. Our Deluxe rooms feature a luxurious king bed, marble bathroom, and carefully curated Balinese décor that tells a story in every detail.',
-    features: ['Private Balcony', 'Ocean View', 'King Bed', 'Marble Bathroom', 'Free WiFi', 'Mini Bar', 'Rain Shower', 'Air Conditioning'],
-    includes: ['Daily breakfast for two', 'Welcome drink & cold towel', 'Evening turn-down service', 'Airport transfer (one-way)'],
-  },
-  {
-    slug: 'premier-garden-suite',
-    name: 'Premier Garden Suite',
-    price: 240,
-    size: '55',
-    bed: 'King Bed',
-    guests: '2',
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=85',
-    description: 'Nestled within our tropical gardens, this spacious suite features a separate living area, outdoor soaking tub, and direct garden access where you can hear the ocean from every corner.',
-    features: ['Garden Access', 'Outdoor Bathtub', 'Separate Living Room', 'King Bed', 'Espresso Machine', 'Butler Service', 'Yoga Mat & Guide', 'Premium Minibar'],
-    includes: ['Daily breakfast for two', 'Afternoon tea service', 'One Segara Spa treatment (60 min)', 'Airport transfer (two-way)'],
-  },
-  {
-    slug: 'private-pool-villa',
-    name: 'Private Pool Villa',
-    price: 380,
-    size: '85',
-    bed: 'King Bed',
-    guests: '2',
-    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=85',
-    description: 'Your own private infinity pool hovering above the Indian Ocean. The ultimate expression of Segara luxury — a fully equipped kitchen, indoor-outdoor living, and a personal butler at your service.',
-    features: ['Private Infinity Pool', 'Ocean View', 'Full Kitchen', 'Indoor-Outdoor Living', 'Dedicated Butler', 'Golf Cart', 'Home Theatre', 'Private Dining Area'],
-    includes: ['Daily breakfast (in-villa)', 'Daily canapés & cocktails', 'Two Spa treatments', 'All airport transfers', 'One private sunset cruise'],
-  },
-  {
-    slug: 'honeymoon-suite',
-    name: 'Honeymoon Suite',
-    price: 420,
-    size: '70',
-    bed: 'King Bed',
-    guests: '2',
-    image: 'https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=1200&q=85',
-    description: 'Designed for romance. A private jacuzzi terrace with unobstructed sea views, rose petal turn-down, complimentary sparkling wine, and a team dedicated to making your love story unforgettable.',
-    features: ['Private Jacuzzi', 'Sea View', 'King Bed', 'Rose Petal Setup', 'Champagne Welcome', 'Premium Toiletries', 'Couples Spa', 'Sunset Cocktails'],
-    includes: ['Daily breakfast in bed', 'Champagne & strawberries on arrival', 'Couples spa treatment (90 min)', 'Private candlelit dinner', 'All airport transfers'],
-  },
-  {
-    slug: 'family-garden-suite',
-    name: 'Family Garden Suite',
-    price: 320,
-    size: '95',
-    bed: '2 Bedrooms',
-    guests: '4',
-    image: 'https://images.unsplash.com/photo-1596436889106-be35e843f974?w=1200&q=85',
-    description: 'A spacious two-bedroom sanctuary designed for families who want to experience Bali together. A children\'s play area, outdoor dining garden, and connecting rooms ensure everyone has space to relax.',
-    features: ['2 Bedrooms', 'Kids Play Area', 'Private Garden', 'Outdoor Dining', 'Baby Crib Available', 'Family Amenities', 'Connecting Rooms', 'Children\'s Pool Access'],
-    includes: ['Daily breakfast for four', 'Kids welcome gift', 'One family cooking class', 'Babysitting service (4 hrs)', 'Airport transfer for four'],
-  },
-]
+const roomModules = import.meta.glob('../content/rooms/*.json', { eager: true })
+const rooms = Object.entries(roomModules)
+  .map(([path, mod]: [string, any]) => ({
+    ...mod.default,
+    slug: path.split('/').pop()!.replace('.json', '')
+  }))
+  .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
 ---
 
 <MainLayout title="Rooms & Villas — Segara Villas Bali" description="Eleven private villas and suites at Segara Villas — each a unique sanctuary on the shores of Seminyak, Bali.">

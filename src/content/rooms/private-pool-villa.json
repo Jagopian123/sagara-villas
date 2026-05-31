@@ -1,0 +1,12 @@
+{
+  "name": "Private Pool Villa",
+  "price": 380,
+  "size": "85",
+  "bed": "King Bed",
+  "guests": "2",
+  "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=85",
+  "description": "Your own private infinity pool hovering above the Indian Ocean. The ultimate expression of Segara luxury — a fully equipped kitchen, indoor-outdoor living, and a personal butler at your service.",
+  "features": ["Private Infinity Pool", "Ocean View", "Full Kitchen", "Indoor-Outdoor Living", "Dedicated Butler", "Golf Cart", "Home Theatre", "Private Dining Area"],
+  "includes": ["Daily breakfast (in-villa)", "Daily canapés & cocktails", "Two Spa treatments", "All airport transfers", "One private sunset cruise"],
+  "order": 3
+}

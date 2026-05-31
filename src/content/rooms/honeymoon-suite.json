@@ -1,0 +1,12 @@
+{
+  "name": "Honeymoon Suite",
+  "price": 420,
+  "size": "70",
+  "bed": "King Bed",
+  "guests": "2",
+  "image": "https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=1200&q=85",
+  "description": "Designed for romance. A private jacuzzi terrace with unobstructed sea views, rose petal turn-down, complimentary sparkling wine, and a team dedicated to making your love story unforgettable.",
+  "features": ["Private Jacuzzi", "Sea View", "King Bed", "Rose Petal Setup", "Champagne Welcome", "Premium Toiletries", "Couples Spa", "Sunset Cocktails"],
+  "includes": ["Daily breakfast in bed", "Champagne & strawberries on arrival", "Couples spa treatment (90 min)", "Private candlelit dinner", "All airport transfers"],
+  "order": 4
+}
