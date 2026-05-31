@@ -7,12 +7,14 @@ interface Props {
   title?: string
   description?: string
   heroImage?: string
+  heroImageBase?: string
 }
 
 const {
   title = 'Segara Villas — Luxury Beachfront Resort, Bali',
   description = 'Experience unparalleled luxury at Segara Villas, Seminyak\'s premier beachfront boutique resort in Bali, Indonesia.',
   heroImage,
+  heroImageBase,
 } = Astro.props
 ---
 
@@ -25,8 +27,17 @@ const {
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>{title}</title>
 
-  <!-- Preload hero image for LCP -->
-  {heroImage && <link rel="preload" as="image" href={heroImage}>}
+  <!-- Preload hero image for LCP — imagesrcset matches srcset on the img tag -->
+  {heroImageBase && (
+    <link
+      rel="preload"
+      as="image"
+      href={`${heroImageBase}?w=1400&q=80`}
+      imagesrcset={`${heroImageBase}?w=640&q=75 640w, ${heroImageBase}?w=1024&q=80 1024w, ${heroImageBase}?w=1400&q=80 1400w`}
+      imagesizes="100vw"
+    />
+  )}
+  {heroImage && !heroImageBase && <link rel="preload" as="image" href={heroImage}>}
 
 </head>
 <body class="bg-[#F8F4EE] text-[#0C1B33] antialiased">
