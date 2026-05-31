@@ -18,15 +18,17 @@ const images = [
 ]
 ---
 
-<MainLayout title="Gallery — Segara Villas Bali" description="A visual journey through Segara Villas — pool, villas, dining, spa, sunsets, and the beauty of Seminyak, Bali.">
+<MainLayout title="Gallery — Segara Villas Bali" description="A visual journey through Segara Villas — pool, villas, dining, spa, sunsets, and the beauty of Seminyak, Bali." heroImage="https://images.unsplash.com/photo-1540541338537-71e5e37ad9f3?w=1400&q=80">
 
   <!-- Banner -->
   <section class="relative h-[65vh] min-h-[480px] flex items-end overflow-hidden">
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1540541338537-71e5e37ad9f3?w=1920&q=85"
+        src="https://images.unsplash.com/photo-1540541338537-71e5e37ad9f3?w=1400&q=80"
         alt="Segara Villas Gallery"
-        class="w-full h-full object-cover">
+        class="w-full h-full object-cover"
+        fetchpriority="high"
+        decoding="async">
       <div class="absolute inset-0 bg-gradient-to-t from-[#0C1B33] via-[#0C1B33]/30 to-[#0C1B33]/10"></div>
     </div>
     <div class="relative z-10 section-padding w-full pb-16 md:pb-24">

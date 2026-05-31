@@ -70,15 +70,17 @@ const testimonials = [
 ]
 ---
 
-<MainLayout>
+<MainLayout heroImage="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400&q=80">
 
   <!-- Hero -->
   <section class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
     <div class="absolute inset-0">
       <img
-        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=85"
+        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400&q=80"
         alt="Segara Villas Bali"
-        class="w-full h-full object-cover">
+        class="w-full h-full object-cover"
+        fetchpriority="high"
+        decoding="async">
       <div class="absolute inset-0 bg-gradient-to-r from-[#0C1B33]/80 via-[#0C1B33]/40 to-transparent"></div>
     </div>
 

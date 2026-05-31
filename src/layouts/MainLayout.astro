@@ -6,11 +6,13 @@ import '../styles/global.css'
 interface Props {
   title?: string
   description?: string
+  heroImage?: string
 }
 
 const {
   title = 'Segara Villas — Luxury Beachfront Resort, Bali',
   description = 'Experience unparalleled luxury at Segara Villas, Seminyak\'s premier beachfront boutique resort in Bali, Indonesia.',
+  heroImage,
 } = Astro.props
 ---
 
@@ -22,6 +24,9 @@ const {
   <meta name="description" content={description}>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>{title}</title>
+
+  <!-- Preload hero image for LCP -->
+  {heroImage && <link rel="preload" as="image" href={heroImage}>}
 
   <!-- Google Fonts (non-blocking) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
