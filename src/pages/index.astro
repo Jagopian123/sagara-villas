@@ -1,0 +1,255 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import RoomCard from '../components/RoomCard.astro'
+
+const featuredRooms = [
+  {
+    slug: 'deluxe-ocean-view',
+    name: 'Deluxe Ocean View',
+    price: 180,
+    size: '35',
+    bed: 'King Bed',
+    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80',
+    description: 'Wake up to panoramic ocean views from your private balcony with curated Balinese décor.',
+    features: ['Private Balcony', 'Ocean View', 'Marble Bathroom', 'Mini Bar'],
+  },
+  {
+    slug: 'private-pool-villa',
+    name: 'Private Pool Villa',
+    price: 380,
+    size: '85',
+    bed: 'King Bed',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80',
+    description: 'Your own private infinity pool overlooking the Indian Ocean — the pinnacle of luxury.',
+    features: ['Private Pool', 'Ocean View', 'Full Kitchen', 'Butler Service'],
+  },
+  {
+    slug: 'honeymoon-suite',
+    name: 'Honeymoon Suite',
+    price: 420,
+    size: '70',
+    bed: 'King Bed',
+    image: 'https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=800&q=80',
+    description: 'Designed for romance with a private jacuzzi terrace, rose petals, and complimentary champagne.',
+    features: ['Private Jacuzzi', 'Sea View', 'Romance Package', 'Champagne Welcome'],
+  },
+]
+
+const amenities = [
+  { icon: '🌊', title: 'Beachfront Location', desc: 'Direct access to a pristine private beach' },
+  { icon: '🏊', title: 'Infinity Pool', desc: 'Two temperature-controlled pools overlooking the ocean' },
+  { icon: '🧘', title: 'Segara Spa', desc: 'Holistic treatments inspired by Balinese traditions' },
+  { icon: '🍽️', title: 'Fine Dining', desc: 'Three signature restaurants with local and international cuisine' },
+  { icon: '🤿', title: 'Water Sports', desc: 'Full range of water activities and diving excursions' },
+  { icon: '🛎️', title: '24/7 Butler', desc: 'Personal butler service available around the clock' },
+]
+
+const testimonials = [
+  {
+    name: 'Sophie Laurent',
+    country: 'France',
+    rating: 5,
+    text: 'An extraordinary experience. The villa exceeded every expectation — the ocean views, the staff, the food. I have never felt more at peace.',
+    avatar: 'SL',
+  },
+  {
+    name: 'James Whitfield',
+    country: 'United Kingdom',
+    rating: 5,
+    text: 'We celebrated our anniversary here and it was absolutely magical. The honeymoon suite was breathtaking and the staff made every moment special.',
+    avatar: 'JW',
+  },
+  {
+    name: 'Aiko Tanaka',
+    country: 'Japan',
+    rating: 5,
+    text: 'The perfect blend of luxury and authentic Balinese culture. I\'ve stayed at many five-star resorts, but Segara Villas is truly in a class of its own.',
+    avatar: 'AT',
+  },
+]
+---
+
+<MainLayout>
+
+  <!-- Hero -->
+  <section class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&q=85"
+        alt="Segara Villas Bali"
+        class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#0C1B33]/80 via-[#0C1B33]/40 to-transparent"></div>
+    </div>
+
+    <div class="relative z-10 section-padding w-full">
+      <div class="max-w-xl">
+        <p class="section-subtitle mb-6">Seminyak, Bali</p>
+        <h1 class="text-[#F8F4EE] font-light leading-tight mb-8"
+            style="font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 6vw, 5.5rem);">
+          Where Luxury<br>Meets the Sea.
+        </h1>
+        <p class="text-[#F8F4EE]/70 text-base leading-relaxed mb-10 max-w-md"
+           style="font-family: 'Inter', sans-serif;">
+          A boutique sanctuary of eleven private villas perched above the shimmering Indian Ocean.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="/rooms" class="btn-outline-light">Explore Rooms</a>
+          <a href="/contact" class="btn-primary" style="background-color: #C9A96E; color: #0C1B33;">Book Your Stay</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#F8F4EE]/50">
+      <p class="text-[0.55rem] uppercase tracking-[0.4em]" style="font-family: 'Manrope', sans-serif;">Scroll</p>
+      <div class="w-px h-10 bg-[#F8F4EE]/30 animate-pulse"></div>
+    </div>
+  </section>
+
+
+  <!-- Featured Rooms -->
+  <section class="py-24 md:py-32 bg-[#F8F4EE]">
+    <div class="section-padding">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <p class="section-subtitle mb-4">Accommodations</p>
+          <h2 class="section-title">Your Private<br>Retreat Awaits.</h2>
+        </div>
+        <a href="/rooms" class="btn-outline self-start md:self-auto">View All Rooms</a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {featuredRooms.map(room => (
+          <RoomCard {...room} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- About Snippet -->
+  <section class="py-24 md:py-32 bg-white">
+    <div class="section-padding">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <!-- Image -->
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1000&q=85"
+            alt="Segara Villas"
+            class="w-full aspect-[4/5] object-cover">
+          <div class="absolute -bottom-6 -right-6 w-40 h-40 hidden lg:block"
+               style="background-color: #C9A96E; opacity: 0.15;"></div>
+        </div>
+
+        <!-- Text -->
+        <div>
+          <p class="section-subtitle mb-6">Our Story</p>
+          <h2 class="section-title mb-8">A Vision of<br>Timeless Beauty.</h2>
+          <p class="text-[#0C1B33]/60 text-base leading-relaxed mb-6" style="font-family: 'Inter', sans-serif;">
+            Founded in 2010 by the Wijaya family, Segara Villas was born from a deep love for Bali's natural beauty and a desire to share it authentically. Every corner of the property is a reflection of that vision — intimate, intentional, unforgettable.
+          </p>
+          <p class="text-[#0C1B33]/60 text-base leading-relaxed mb-10" style="font-family: 'Inter', sans-serif;">
+            We believe luxury is not about excess — it is about presence. The warmth of genuine hospitality, the silence of the ocean at dawn, the scent of frangipani carried on a sea breeze.
+          </p>
+          <a href="/about" class="btn-primary">Discover Our Story</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Amenities -->
+  <section class="py-24 md:py-32" style="background-color: #0C1B33;">
+    <div class="section-padding">
+      <div class="text-center mb-16">
+        <p class="section-subtitle mb-4" style="color: #C9A96E;">Everything You Need</p>
+        <h2 class="text-4xl md:text-5xl font-light text-[#F8F4EE] leading-tight"
+            style="font-family: 'Cormorant Garamond', serif;">
+          Resort Amenities
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {amenities.map(item => (
+          <div class="flex gap-5 p-8 border border-[#F8F4EE]/10 hover:border-[#C9A96E]/40 transition-colors duration-300">
+            <span class="text-3xl">{item.icon}</span>
+            <div>
+              <h3 class="text-[#F8F4EE] text-lg font-light mb-2" style="font-family: 'Cormorant Garamond', serif;">
+                {item.title}
+              </h3>
+              <p class="text-[#F8F4EE]/40 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Testimonials -->
+  <section class="py-24 md:py-32 bg-[#F8F4EE]">
+    <div class="section-padding">
+      <div class="text-center mb-16">
+        <p class="section-subtitle mb-4">Guest Stories</p>
+        <h2 class="section-title">Words from<br>Our Guests.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map(t => (
+          <div class="bg-white p-10 flex flex-col gap-6">
+            <!-- Stars -->
+            <div class="flex gap-1">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <span class={`text-lg ${i < t.rating ? 'text-[#C9A96E]' : 'text-[#0C1B33]/10'}`}>★</span>
+              ))}
+            </div>
+            <!-- Quote -->
+            <blockquote class="text-[#0C1B33]/70 text-lg font-light leading-relaxed italic flex-1"
+                        style="font-family: 'Cormorant Garamond', serif;">
+              "{t.text}"
+            </blockquote>
+            <!-- Author -->
+            <div class="flex items-center gap-4 pt-5 border-t border-[#0C1B33]/8">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-[#0C1B33] text-sm font-semibold"
+                   style="background-color: #C9A96E; font-family: 'Manrope', sans-serif;">
+                {t.avatar}
+              </div>
+              <div>
+                <p class="text-[#0C1B33] text-sm font-medium" style="font-family: 'Manrope', sans-serif;">{t.name}</p>
+                <p class="text-[#0C1B33]/40 text-xs" style="font-family: 'Inter', sans-serif;">{t.country}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section class="relative py-32 md:py-40 overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1540541338537-71e5e37ad9f3?w=1920&q=85"
+        alt="Book your stay"
+        class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-[#0C1B33]/70"></div>
+    </div>
+    <div class="relative z-10 section-padding text-center">
+      <p class="section-subtitle mb-6" style="color: #C9A96E;">Begin Your Journey</p>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-light text-[#F8F4EE] mb-6 leading-tight"
+          style="font-family: 'Cormorant Garamond', serif;">
+        Your Bali Story<br>Starts Here.
+      </h2>
+      <p class="text-[#F8F4EE]/60 max-w-md mx-auto mb-10" style="font-family: 'Inter', sans-serif;">
+        Eleven private villas. Eleven unique stories. Reserve yours today.
+      </p>
+      <a href="/contact" class="btn-outline-light">Reserve Your Villa</a>
+    </div>
+  </section>
+
+</MainLayout>

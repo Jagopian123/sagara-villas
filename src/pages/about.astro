@@ -1,0 +1,181 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+
+const values = [
+  {
+    title: 'Authentic Luxury',
+    desc: 'Every detail is curated with intention — never ostentatious, always meaningful. We believe true luxury is the freedom to simply be.',
+  },
+  {
+    title: 'Balinese Soul',
+    desc: 'We are deeply rooted in Balinese culture. Our team, our architecture, our ceremonies — all are an authentic expression of the island spirit.',
+  },
+  {
+    title: 'Conscious Hospitality',
+    desc: 'We are committed to sustainable practices that honour the land, support our community, and preserve Bali\'s natural beauty for generations.',
+  },
+  {
+    title: 'Personal Connection',
+    desc: 'With only eleven villas, every guest receives our full attention. We remember names, preferences, and the reasons you chose to come here.',
+  },
+]
+
+const team = [
+  {
+    name: 'Wayan Wijaya',
+    role: 'Founder & Host',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
+  },
+  {
+    name: 'Ni Luh Sari',
+    role: 'Head of Guest Experience',
+    image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80',
+  },
+  {
+    name: 'Made Artana',
+    role: 'Executive Chef',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
+  },
+]
+---
+
+<MainLayout title="About — Segara Villas Bali" description="The story of Segara Villas — a boutique luxury resort born from a deep love for Bali.">
+
+  <!-- Banner -->
+  <section class="relative h-[65vh] min-h-[480px] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1920&q=85"
+        alt="About Segara Villas"
+        class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0C1B33] via-[#0C1B33]/40 to-[#0C1B33]/10"></div>
+    </div>
+    <div class="relative z-10 section-padding w-full pb-16 md:pb-24">
+      <p class="section-subtitle mb-4">Our Story</p>
+      <h1 class="text-[#F8F4EE] font-light leading-tight"
+          style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem);">
+        Born from Bali's<br>Timeless Spirit.
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- Story -->
+  <section class="py-24 md:py-32 bg-[#F8F4EE]">
+    <div class="section-padding">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-28 items-center">
+
+        <div>
+          <p class="section-subtitle mb-6">Since 2010</p>
+          <h2 class="section-title mb-8">A Family's Gift<br>to the World.</h2>
+          <div class="flex flex-col gap-5 text-[#0C1B33]/60 text-base leading-relaxed"
+               style="font-family: 'Inter', sans-serif;">
+            <p>
+              Segara Villas was built on a single belief: that the most meaningful travel is the kind that changes you. When Wayan Wijaya returned to his homeland after a decade abroad, he found himself searching for a way to share Bali's quiet magic with those who had not yet discovered it.
+            </p>
+            <p>
+              What began as two simple villas on a stretch of golden sand has grown into a sanctuary of eleven private retreats, each one a love letter to the island. The property was designed entirely by local craftsmen using traditional Balinese architecture — volcanic stone, teak wood, hand-carved details passed down through generations.
+            </p>
+            <p>
+              Today, Segara Villas is recognised among the finest boutique resorts in Southeast Asia. But to us, it remains what it has always been: a home, and an invitation to feel at home.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <img
+            src="https://images.unsplash.com/photo-1540541338537-71e5e37ad9f3?w=600&q=80"
+            alt="Aerial view"
+            class="w-full aspect-[3/4] object-cover">
+          <div class="flex flex-col gap-4 mt-8">
+            <img
+              src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?w=600&q=80"
+              alt="Sunset"
+              class="w-full aspect-square object-cover">
+            <img
+              src="https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=600&q=80"
+              alt="Spa"
+              class="w-full aspect-square object-cover">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Stats -->
+  <section class="py-20 bg-white border-y border-[#0C1B33]/8">
+    <div class="section-padding">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {[
+          { value: '11', label: 'Private Villas' },
+          { value: '15+', label: 'Years of Hospitality' },
+          { value: '4,800+', label: 'Happy Guests' },
+          { value: '5★', label: 'Guest Rating' },
+        ].map(stat => (
+          <div>
+            <p class="text-5xl font-light text-[#C9A96E] mb-2"
+               style="font-family: 'Cormorant Garamond', serif;">{stat.value}</p>
+            <p class="text-[#0C1B33]/50 text-xs uppercase tracking-[0.3em]"
+               style="font-family: 'Manrope', sans-serif;">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Values -->
+  <section class="py-24 md:py-32" style="background-color: #0C1B33;">
+    <div class="section-padding">
+      <div class="text-center mb-16">
+        <p class="section-subtitle mb-4">What We Believe</p>
+        <h2 class="text-4xl md:text-5xl font-light text-[#F8F4EE] leading-tight"
+            style="font-family: 'Cormorant Garamond', serif;">
+          Our Philosophy
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {values.map((v, i) => (
+          <div class="p-10 border border-[#F8F4EE]/10 hover:border-[#C9A96E]/30 transition-colors duration-300">
+            <span class="text-[#C9A96E]/30 text-6xl font-light block mb-6"
+                  style="font-family: 'Cormorant Garamond', serif;">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="text-[#F8F4EE] text-2xl font-light mb-4"
+                style="font-family: 'Cormorant Garamond', serif;">{v.title}</h3>
+            <p class="text-[#F8F4EE]/50 text-sm leading-relaxed" style="font-family: 'Inter', sans-serif;">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Team -->
+  <section class="py-24 md:py-32 bg-[#F8F4EE]">
+    <div class="section-padding">
+      <div class="text-center mb-16">
+        <p class="section-subtitle mb-4">The People Behind the Magic</p>
+        <h2 class="section-title">Meet Our Team.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-3xl mx-auto">
+        {team.map(member => (
+          <div class="text-center">
+            <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-5">
+              <img src={member.image} alt={member.name} class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-xl font-light text-[#0C1B33] mb-1"
+                style="font-family: 'Cormorant Garamond', serif;">{member.name}</h3>
+            <p class="text-[0.65rem] uppercase tracking-[0.3em] text-[#C9A96E]"
+               style="font-family: 'Manrope', sans-serif;">{member.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</MainLayout>

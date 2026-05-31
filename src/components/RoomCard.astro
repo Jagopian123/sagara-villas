@@ -1,0 +1,78 @@
+---
+interface Props {
+  image: string
+  name: string
+  price: number
+  size: string
+  bed: string
+  description: string
+  features: string[]
+  slug: string
+}
+
+const { image, name, price, size, bed, description, features, slug } = Astro.props
+---
+
+<div class="group bg-white overflow-hidden">
+
+  <!-- Image -->
+  <div class="relative overflow-hidden aspect-[4/3]">
+    <img
+      src={image}
+      alt={name}
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+      loading="lazy">
+    <div class="absolute inset-0 bg-[#0C1B33]/0 group-hover:bg-[#0C1B33]/20 transition-colors duration-500"></div>
+    <!-- Price Badge -->
+    <div class="absolute top-5 right-5 bg-[#0C1B33] px-4 py-2">
+      <p class="text-[#C9A96E] text-xs" style="font-family: 'Manrope', sans-serif;">
+        <span class="text-lg font-light" style="font-family: 'Cormorant Garamond', serif;">${price}</span>
+        <span class="opacity-60"> / night</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="p-8">
+    <!-- Meta -->
+    <div class="flex items-center gap-5 mb-4">
+      <span class="flex items-center gap-1.5 text-[#0C1B33]/40 text-xs" style="font-family: 'Manrope', sans-serif;">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+        </svg>
+        {size} m²
+      </span>
+      <span class="flex items-center gap-1.5 text-[#0C1B33]/40 text-xs" style="font-family: 'Manrope', sans-serif;">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18M3 12V8a1 1 0 011-1h16a1 1 0 011 1v4M3 12v4h18v-4"/>
+        </svg>
+        {bed}
+      </span>
+    </div>
+
+    <h3 class="text-2xl font-light mb-3 text-[#0C1B33]" style="font-family: 'Cormorant Garamond', serif;">
+      {name}
+    </h3>
+    <p class="text-[#0C1B33]/60 text-sm leading-relaxed mb-6" style="font-family: 'Inter', sans-serif;">
+      {description}
+    </p>
+
+    <!-- Features -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      {features.slice(0, 4).map(f => (
+        <span class="text-[0.6rem] uppercase tracking-[0.2em] px-3 py-1.5 bg-[#F8F4EE] text-[#0C1B33]/60"
+              style="font-family: 'Manrope', sans-serif;">
+          {f}
+        </span>
+      ))}
+    </div>
+
+    <a href={`/rooms#${slug}`} class="btn-outline text-[0.65rem]">
+      View Details
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+  </div>
+
+</div>

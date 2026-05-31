@@ -1,0 +1,179 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+
+const rooms = [
+  {
+    slug: 'deluxe-ocean-view',
+    name: 'Deluxe Ocean View',
+    price: 180,
+    size: '35',
+    bed: 'King Bed',
+    guests: '2',
+    image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85',
+    description: 'Wake up to panoramic ocean views from your private balcony. Our Deluxe rooms feature a luxurious king bed, marble bathroom, and carefully curated Balinese décor that tells a story in every detail.',
+    features: ['Private Balcony', 'Ocean View', 'King Bed', 'Marble Bathroom', 'Free WiFi', 'Mini Bar', 'Rain Shower', 'Air Conditioning'],
+    includes: ['Daily breakfast for two', 'Welcome drink & cold towel', 'Evening turn-down service', 'Airport transfer (one-way)'],
+  },
+  {
+    slug: 'premier-garden-suite',
+    name: 'Premier Garden Suite',
+    price: 240,
+    size: '55',
+    bed: 'King Bed',
+    guests: '2',
+    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=85',
+    description: 'Nestled within our tropical gardens, this spacious suite features a separate living area, outdoor soaking tub, and direct garden access where you can hear the ocean from every corner.',
+    features: ['Garden Access', 'Outdoor Bathtub', 'Separate Living Room', 'King Bed', 'Espresso Machine', 'Butler Service', 'Yoga Mat & Guide', 'Premium Minibar'],
+    includes: ['Daily breakfast for two', 'Afternoon tea service', 'One Segara Spa treatment (60 min)', 'Airport transfer (two-way)'],
+  },
+  {
+    slug: 'private-pool-villa',
+    name: 'Private Pool Villa',
+    price: 380,
+    size: '85',
+    bed: 'King Bed',
+    guests: '2',
+    image: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=85',
+    description: 'Your own private infinity pool hovering above the Indian Ocean. The ultimate expression of Segara luxury — a fully equipped kitchen, indoor-outdoor living, and a personal butler at your service.',
+    features: ['Private Infinity Pool', 'Ocean View', 'Full Kitchen', 'Indoor-Outdoor Living', 'Dedicated Butler', 'Golf Cart', 'Home Theatre', 'Private Dining Area'],
+    includes: ['Daily breakfast (in-villa)', 'Daily canapés & cocktails', 'Two Spa treatments', 'All airport transfers', 'One private sunset cruise'],
+  },
+  {
+    slug: 'honeymoon-suite',
+    name: 'Honeymoon Suite',
+    price: 420,
+    size: '70',
+    bed: 'King Bed',
+    guests: '2',
+    image: 'https://images.unsplash.com/photo-1615460549969-36fa19521a4f?w=1200&q=85',
+    description: 'Designed for romance. A private jacuzzi terrace with unobstructed sea views, rose petal turn-down, complimentary sparkling wine, and a team dedicated to making your love story unforgettable.',
+    features: ['Private Jacuzzi', 'Sea View', 'King Bed', 'Rose Petal Setup', 'Champagne Welcome', 'Premium Toiletries', 'Couples Spa', 'Sunset Cocktails'],
+    includes: ['Daily breakfast in bed', 'Champagne & strawberries on arrival', 'Couples spa treatment (90 min)', 'Private candlelit dinner', 'All airport transfers'],
+  },
+  {
+    slug: 'family-garden-suite',
+    name: 'Family Garden Suite',
+    price: 320,
+    size: '95',
+    bed: '2 Bedrooms',
+    guests: '4',
+    image: 'https://images.unsplash.com/photo-1596436889106-be35e843f974?w=1200&q=85',
+    description: 'A spacious two-bedroom sanctuary designed for families who want to experience Bali together. A children\'s play area, outdoor dining garden, and connecting rooms ensure everyone has space to relax.',
+    features: ['2 Bedrooms', 'Kids Play Area', 'Private Garden', 'Outdoor Dining', 'Baby Crib Available', 'Family Amenities', 'Connecting Rooms', 'Children\'s Pool Access'],
+    includes: ['Daily breakfast for four', 'Kids welcome gift', 'One family cooking class', 'Babysitting service (4 hrs)', 'Airport transfer for four'],
+  },
+]
+---
+
+<MainLayout title="Rooms & Villas — Segara Villas Bali" description="Eleven private villas and suites at Segara Villas — each a unique sanctuary on the shores of Seminyak, Bali.">
+
+  <!-- Banner -->
+  <section class="relative h-[65vh] min-h-[480px] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1920&q=85"
+        alt="Rooms at Segara Villas"
+        class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0C1B33] via-[#0C1B33]/40 to-[#0C1B33]/10"></div>
+    </div>
+    <div class="relative z-10 section-padding w-full pb-16 md:pb-24">
+      <p class="section-subtitle mb-4">Accommodations</p>
+      <h1 class="text-[#F8F4EE] font-light leading-tight"
+          style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem);">
+        Eleven Unique<br>Private Retreats.
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- Rooms List -->
+  <section class="py-24 md:py-32 bg-[#F8F4EE]">
+    <div class="section-padding">
+
+      <div class="flex flex-col gap-24">
+        {rooms.map((room, i) => (
+          <div id={room.slug} class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+            <!-- Image -->
+            <div class:list={['relative overflow-hidden', i % 2 !== 0 ? 'lg:order-last' : '']}>
+              <img
+                src={room.image}
+                alt={room.name}
+                class="w-full aspect-[4/3] object-cover">
+              <div class="absolute top-5 left-5 bg-[#0C1B33] px-5 py-3">
+                <p class="text-[#C9A96E] text-sm" style="font-family: 'Manrope', sans-serif;">
+                  from <span class="text-2xl font-light" style="font-family: 'Cormorant Garamond', serif;">${room.price}</span> / night
+                </p>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class:list={[i % 2 !== 0 ? 'lg:order-first' : '']}>
+              <!-- Meta -->
+              <div class="flex items-center gap-6 mb-5">
+                <span class="text-[#0C1B33]/40 text-xs flex items-center gap-1.5" style="font-family: 'Manrope', sans-serif;">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12h18M3 12V8a1 1 0 011-1h16a1 1 0 011 1v4M3 12v4h18v-4"/>
+                  </svg>
+                  {room.bed}
+                </span>
+                <span class="text-[#0C1B33]/40 text-xs flex items-center gap-1.5" style="font-family: 'Manrope', sans-serif;">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+                  </svg>
+                  {room.size} m²
+                </span>
+                <span class="text-[#0C1B33]/40 text-xs flex items-center gap-1.5" style="font-family: 'Manrope', sans-serif;">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                  Up to {room.guests} guests
+                </span>
+              </div>
+
+              <h2 class="text-3xl md:text-4xl font-light text-[#0C1B33] mb-5"
+                  style="font-family: 'Cormorant Garamond', serif;">{room.name}</h2>
+              <p class="text-[#0C1B33]/60 text-sm leading-relaxed mb-8"
+                 style="font-family: 'Inter', sans-serif;">{room.description}</p>
+
+              <!-- Features -->
+              <div class="mb-8">
+                <p class="text-[0.6rem] uppercase tracking-[0.35em] text-[#0C1B33]/40 mb-4"
+                   style="font-family: 'Manrope', sans-serif;">Room Features</p>
+                <div class="grid grid-cols-2 gap-2">
+                  {room.features.map(f => (
+                    <div class="flex items-center gap-2">
+                      <span class="w-1 h-1 rounded-full bg-[#C9A96E] shrink-0"></span>
+                      <span class="text-xs text-[#0C1B33]/60" style="font-family: 'Inter', sans-serif;">{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Includes -->
+              <div class="mb-10 p-6 bg-white">
+                <p class="text-[0.6rem] uppercase tracking-[0.35em] text-[#0C1B33]/40 mb-4"
+                   style="font-family: 'Manrope', sans-serif;">Package Includes</p>
+                <ul class="flex flex-col gap-2">
+                  {room.includes.map(item => (
+                    <li class="flex items-start gap-2">
+                      <svg class="w-3.5 h-3.5 text-[#C9A96E] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span class="text-xs text-[#0C1B33]/60" style="font-family: 'Inter', sans-serif;">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a href="/contact" class="btn-primary">Book This Room</a>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+</MainLayout>

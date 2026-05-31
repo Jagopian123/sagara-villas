@@ -1,0 +1,228 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+
+const info = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0zM15 11a3 3 0 11-6 0 3 3 0 016 0z"/>`,
+    label: 'Address',
+    value: 'Jl. Kayu Aya No. 12, Seminyak, Bali 80361, Indonesia',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>`,
+    label: 'Phone',
+    value: '+62 361 123 456',
+    href: 'tel:+62361123456',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`,
+    label: 'Email',
+    value: 'hello@segaravillas.com',
+    href: 'mailto:hello@segaravillas.com',
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>`,
+    label: 'Reception Hours',
+    value: '24 hours, 7 days a week',
+  },
+]
+---
+
+<MainLayout title="Contact — Segara Villas Bali" description="Contact Segara Villas to plan your stay. Reserve your private villa in Seminyak, Bali.">
+
+  <!-- Banner -->
+  <section class="relative h-[65vh] min-h-[480px] flex items-end overflow-hidden">
+    <div class="absolute inset-0">
+      <img
+        src="https://images.unsplash.com/photo-1476041800959-2f6bb412c8ce?w=1920&q=85"
+        alt="Contact Segara Villas"
+        class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0C1B33] via-[#0C1B33]/40 to-[#0C1B33]/10"></div>
+    </div>
+    <div class="relative z-10 section-padding w-full pb-16 md:pb-24">
+      <p class="section-subtitle mb-4">We'd Love to Hear from You</p>
+      <h1 class="text-[#F8F4EE] font-light leading-tight"
+          style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem);">
+        Begin Your<br>Bali Journey.
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- Contact Content -->
+  <section class="py-24 md:py-32 bg-[#F8F4EE]">
+    <div class="section-padding">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-20">
+
+        <!-- Form (3/5) -->
+        <div class="lg:col-span-3"
+             x-data="{
+               name: '',
+               email: '',
+               phone: '',
+               arrival: '',
+               departure: '',
+               room: '',
+               guests: '',
+               message: '',
+               submitted: false,
+               submit() {
+                 if (!this.name || !this.email) return
+                 this.submitted = true
+               }
+             }">
+
+          <p class="section-subtitle mb-5">Make a Reservation</p>
+          <h2 class="section-title mb-12">Reserve Your<br>Villa.</h2>
+
+          <div x-show="submitted"
+               x-transition
+               class="bg-[#1B3A2D]/10 border border-[#1B3A2D]/30 p-8 mb-10 text-center">
+            <svg class="w-8 h-8 text-[#1B3A2D] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <p class="text-[#0C1B33] font-medium mb-1" style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;">
+              Thank you, <span x-text="name"></span>!
+            </p>
+            <p class="text-[#0C1B33]/60 text-sm" style="font-family: 'Inter', sans-serif;">
+              We've received your enquiry and will respond within 2 hours.
+            </p>
+          </div>
+
+          <form @submit.prevent="submit()" x-show="!submitted" class="flex flex-col gap-6">
+
+            <!-- Name & Email -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                       style="font-family: 'Manrope', sans-serif;">Full Name *</label>
+                <input type="text" x-model="name" required
+                       class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300 placeholder-[#0C1B33]/25"
+                       style="font-family: 'Inter', sans-serif;"
+                       placeholder="Your full name">
+              </div>
+              <div>
+                <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                       style="font-family: 'Manrope', sans-serif;">Email Address *</label>
+                <input type="email" x-model="email" required
+                       class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300 placeholder-[#0C1B33]/25"
+                       style="font-family: 'Inter', sans-serif;"
+                       placeholder="your@email.com">
+              </div>
+            </div>
+
+            <!-- Phone & Room -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                       style="font-family: 'Manrope', sans-serif;">Phone Number</label>
+                <input type="tel" x-model="phone"
+                       class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300 placeholder-[#0C1B33]/25"
+                       style="font-family: 'Inter', sans-serif;"
+                       placeholder="+1 234 567 8900">
+              </div>
+              <div>
+                <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                       style="font-family: 'Manrope', sans-serif;">Room Preference</label>
+                <select x-model="room"
+                        class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300 appearance-none"
+                        style="font-family: 'Inter', sans-serif;">
+                  <option value="">Select a room type</option>
+                  <option value="deluxe">Deluxe Ocean View</option>
+                  <option value="suite">Premier Garden Suite</option>
+                  <option value="villa">Private Pool Villa</option>
+                  <option value="honeymoon">Honeymoon Suite</option>
+                  <option value="family">Family Garden Suite</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Arrival & Departure -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                       style="font-family: 'Manrope', sans-serif;">Arrival Date</label>
+                <input type="date" x-model="arrival"
+                       class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300"
+                       style="font-family: 'Inter', sans-serif;">
+              </div>
+              <div>
+                <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                       style="font-family: 'Manrope', sans-serif;">Departure Date</label>
+                <input type="date" x-model="departure"
+                       class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300"
+                       style="font-family: 'Inter', sans-serif;">
+              </div>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label class="block text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/50 mb-3"
+                     style="font-family: 'Manrope', sans-serif;">Special Requests</label>
+              <textarea x-model="message" rows="4"
+                        class="w-full border border-[#0C1B33]/15 bg-white text-[#0C1B33] px-5 py-4 text-sm focus:outline-none focus:border-[#0C1B33] transition-colors duration-300 resize-none placeholder-[#0C1B33]/25"
+                        style="font-family: 'Inter', sans-serif;"
+                        placeholder="Honeymoon setup, dietary requirements, early check-in..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary justify-center py-5">
+              Send Enquiry
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+
+          </form>
+        </div>
+
+        <!-- Info (2/5) -->
+        <div class="lg:col-span-2">
+          <div class="sticky top-28">
+            <p class="section-subtitle mb-8">Contact Details</p>
+
+            <div class="flex flex-col gap-8 mb-10">
+              {info.map(item => (
+                <div class="flex gap-5">
+                  <div class="w-11 h-11 shrink-0 flex items-center justify-center border border-[#C9A96E]/40">
+                    <svg class="w-4 h-4 text-[#C9A96E]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         set:html={item.icon}></svg>
+                  </div>
+                  <div>
+                    <p class="text-[0.6rem] uppercase tracking-[0.3em] text-[#0C1B33]/40 mb-1.5"
+                       style="font-family: 'Manrope', sans-serif;">{item.label}</p>
+                    {item.href ? (
+                      <a href={item.href}
+                         class="text-[#0C1B33] text-sm hover:text-[#C9A96E] transition-colors leading-relaxed"
+                         style="font-family: 'Inter', sans-serif;">{item.value}</a>
+                    ) : (
+                      <p class="text-[#0C1B33] text-sm leading-relaxed"
+                         style="font-family: 'Inter', sans-serif;">{item.value}</p>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Dark Card -->
+            <div class="bg-[#0C1B33] p-8">
+              <p class="text-[#F8F4EE] text-2xl font-light mb-3" style="font-family: 'Cormorant Garamond', serif;">
+                Prefer a direct call?
+              </p>
+              <p class="text-[#F8F4EE]/50 text-sm mb-6 leading-relaxed" style="font-family: 'Inter', sans-serif;">
+                Our reservations team is available 24 hours to answer any questions and personalise your stay.
+              </p>
+              <a href="tel:+62361123456" class="btn-outline-light w-full justify-center py-4">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                Call Reservations
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</MainLayout>
